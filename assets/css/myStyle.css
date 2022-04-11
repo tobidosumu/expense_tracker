@@ -1,0 +1,64 @@
+/* nav tab styling */
+.linkColor a:link {
+  background-color: none;
+}
+
+.linkColor a:visited {
+  background-color: #09167a;
+}
+
+.linkColor a:hover {
+  background-color: #097a23;
+}
+
+.linkColor a:active {
+  background-color: #097a23;
+}
+
+.table thead th {
+  border: none !important;
+}
+
+/* main section starts here */
+
+.padding {
+  padding: 3% 5% 4% 11%;
+}
+
+@media only screen and (max-width: 1100px) {
+  .padding {
+    padding: 3% 5% 4% 12% ;
+  }
+}
+@media only screen and (max-width: 970px) {
+  .padding {
+    padding: 3% 5% 4% 12%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .padding {
+    padding: 3% 5% 4% 12%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .padding {
+    padding: 3% 5% 4% 14%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .padding {
+    padding: 3% 5% 4% 16%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .padding {
+    padding: 3% 5% 4% 18%;
+  }
+}
+
+.modal-notify .modal-header {
+  border-radius: 3px 3px 0 0;
+}
+.modal-notify .modal-content {
+  border-radius: 3px;
+}
