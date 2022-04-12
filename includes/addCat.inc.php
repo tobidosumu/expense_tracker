@@ -1,3 +1,14 @@
+<?php 
+  if (isset($_POST['submit'])) {
+
+    $catName = $_POST['catName'];
+
+  }
+
+  // var_dump($catName);
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,29 +22,31 @@
   </head>
   <body>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-uppercase" id="exampleModalLabel">Add New Category</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="index.php" method="POST">
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Category Name:</label>
-            <input type="text" class="form-control text-black" name="catName" placeholder="Enter category name">
+    <form action="index.php" method="post">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase" id="exampleModalLabel">Add New Category</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Category Name:</label>
+                  <input type="text" class="form-control text-black" name="catName" placeholder="Enter category name">
+                </div>
+          
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-success" value="Add Category" name="submit">
+            </div>
           </div>
-        </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" name="submit">Add Category</button>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- Optional JavaScript; choose one of the two! -->
+    </form>
+      <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
