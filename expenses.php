@@ -1,5 +1,5 @@
-<?php include "../ExpenseTracker/includes/addExp.inc.php";?>
-<?php include "../ExpenseTracker/includes/sidebar.inc.php";?>
+<?php include "./includes/addExp.inc.php"; ?>
+<?php include "./includes/sidebar.inc.php"; ?>
 
 <div class="container-fluid padding">
 
@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-plus-square"></i> Add Expense</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-plus-square"></i> Add Expense</button>
           </li>
         </ul>
       </div>

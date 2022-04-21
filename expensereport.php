@@ -1,4 +1,4 @@
-<?php include "../ExpenseTracker/includes/sidebar.inc.php";?>
+<?php include "./includes/sidebar.inc.php"; ?>
 
 <div class="container-fluid padding">
 
