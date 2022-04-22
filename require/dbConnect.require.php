@@ -6,14 +6,14 @@ class DbConnect {
     private $database;
     private $connection;
 
-    //reconciles properties with addCat.inc.php form inputs
+    //initializes object properties when object is created
     public function __construct($host,$username,$password,$database) {
         $this->host = $host;
         $this->username = $username;
         $this->password = $password;
         $this->database = $database;
 
-        //opens connection to the db via parameters and makes connection readily available when called(return)
+        //opens connection to the db
         $this->connection = new mysqli($this->host,$this->username,$password,$this->database);
         
         return $this;

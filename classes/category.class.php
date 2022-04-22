@@ -14,14 +14,14 @@
 
         //methods
         public function __construct($catName) {
-            $this->sn = count(self::$categories)+1;; 
+            $this->sn = count(self::$categories)+1;
             $this->catName = $catName;
             $this->dateCreated;
             $this->status;
             self::$categories[] = $this; 
         }
 
-        //saves categories to db
+        //saves categories to database
         public static function createCategory($category){
             $insertCategory = self::$dbConn->query("INSERT INTO categories 
             (catName) VALUES ('$category')");
