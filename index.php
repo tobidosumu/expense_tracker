@@ -59,7 +59,7 @@ include "./includes/sidebar.inc.php";
         echo "<tr>";
         echo "<td>" . $category->getSerialNum() . "</td>";
         echo "<td>" . $category->getCategoryName() . "</td>";
-        echo "<td>" . date('d-M-Y') . "</td>";
+        echo "<td>" . $category->getDateCreated() . "</td>";
         echo "<td>" . "Active" . "</td>";
         echo "</tr>";
       }

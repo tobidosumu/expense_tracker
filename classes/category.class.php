@@ -14,12 +14,12 @@ class Category
     private static $categories = [];
 
     //methods
-    public function __construct($catName)
+    public function __construct($catName, $dateCreated = null, $status = null)
     {
         $this->sn = count(self::$categories) + 1;
         $this->catName = $catName;
-        $this->dateCreated;
-        $this->status;
+        $this->dateCreated = $dateCreated;
+        $this->status = $status;
         self::$categories[] = $this;
     }
 
@@ -38,7 +38,7 @@ class Category
 
         if ($result->num_rows > 0) {
             foreach ($result as $category) {
-                new Category($category['catName']);
+                new Category($category['catName'], $category['dateCreated'], $category['active']);
             }
         }
     }
@@ -60,5 +60,10 @@ class Category
     public function getCategoryName()
     {
         return $this->catName;
+    }
+
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
     }
 }
