@@ -1,5 +1,6 @@
 <?php
-class DbConnect {
+class DbConnect
+{
     private $host;
     private $username;
     private $password;
@@ -7,20 +8,26 @@ class DbConnect {
     private $connection;
 
     //initializes object properties when object is created
-    public function __construct($host,$username,$password,$database) {
+    public function __construct($host, $username, $password, $database)
+    {
         $this->host = $host;
         $this->username = $username;
         $this->password = $password;
         $this->database = $database;
 
         //opens connection to the db
-        $this->connection = new mysqli($this->host,$this->username,$password,$this->database);
-        
+        $this->connection = new mysqli($this->host, $this->username, $password, $this->database);
+
         return $this;
     }
 
-    public function query($queryString) {
-        return $this->connection->query($queryString);
+    public function query($queryString)
+    {
+        $result = $this->connection->query($queryString);
+
+        if ($this->connection->error) exit($this->connection->error);
+
+        return $result;
     }
 }
 
