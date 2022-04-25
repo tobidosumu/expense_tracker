@@ -16,7 +16,7 @@ class DbConnect
         $this->database = $database;
 
         //opens connection to the db
-        $this->connection = new mysqli($this->host, $this->username, $password, $this->database);
+        $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 
         return $this;
     }
@@ -29,8 +29,10 @@ class DbConnect
 
         return $result;
     }
+
+    
 }
 
-require "./require/dbParam.require.php";
+require "./require/env.php";
 
 $dbConn = new DbConnect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);

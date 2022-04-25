@@ -1,10 +1,10 @@
 <?php
     spl_autoload_register('myAutoLoader');
 
-    //the autoload magic method facilitates automatic connection(s) with .class.php files
+    //the autoload magic method facilitates automatic connection(s) with .php files
     function myAutoLoader($className) {
         $path = "classes/";
-        $extension = ".class.php";
+        $extension = ".php";
         $fullPath = $path . $className . $extension;
 
         if (!file_exists($fullPath)) {

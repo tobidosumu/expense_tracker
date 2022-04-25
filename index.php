@@ -1,46 +1,46 @@
-<?php include "./includes/autoloader.inc.php";
+<?php 
+  include "./classes/category.php";
+   
+    $catValid = false;
+    
+    if (isset($_POST['submit']) && !empty($_POST['catName'])) {
 
-$error_message = false;
-if (isset($_POST['submit'])) {
+      $catName = $_POST['catName'];
 
-  //create new allowance
-  $categoryValidation = new CategoryValidation($_POST);
-  $errors = $categoryValidation->validateCategoryForm();
+      //instantiates validateCategories method
+      $catValid = Category::validateCategoryName($catName);
 
-  if ($errors) {
-    $catName = $errors['catName'];
+      //instantiates createCategory method
+      Category::createCategory($catName);
 
-    echo "<p>" . $catName . "</p>";
-    // header("Location: index.php?catName={$catName}");
-  }
+    }
+  
 
-  $catName = $_POST['catName'];
-
-  Category::createCategory($catName);
-}
-
-// including HTML files
-include "./includes/addCat.inc.php";
-include "./includes/sidebar.inc.php";
+  // including HTML files
+  include "./includes/addCat.php";
+  include "./includes/sidebar.php";
 ?>
 
 <div class="container-fluid padding">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <h4 class="text-uppercase">Categories</h4>
+      <h4 class="text-uppercase">Categories</h4> 
+
+      <?php 
+         echo $catValid;
+        // var_dump($result);
+      ?>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-plus-square"></i> Add Category</button>
-
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
   <table class="table table-striped table-hover">
     <thead>
       <tr>

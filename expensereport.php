@@ -1,4 +1,4 @@
-<?php include "./includes/sidebar.inc.php"; ?>
+<?php include "./includes/sidebar.php"; ?>
 
 <div class="container-fluid padding">
 

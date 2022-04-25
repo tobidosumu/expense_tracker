@@ -1,5 +1,23 @@
-<?php include "./includes/addExp.inc.php"; ?>
-<?php include "./includes/sidebar.inc.php"; ?>
+<?php 
+include_once "./classes/expense.php";
+include_once "./classes/category.php";
+//include "./includes/autoloader.php";
+
+  if (isset($_POST['submit']))
+  {
+    require_once "./classes/expense.php";
+
+    $narration = $_POST['expNarrate'];
+    $category = $_POST['expCategory'];
+    $amount = $_POST['expAmount'];
+
+    Expense::createExpense($narration, $category, $amount);
+}
+
+  // including HTML files
+  include "./includes/addExp.php";
+  include "./includes/sidebar.php";
+?>
 
 <div class="container-fluid padding">
 
@@ -28,26 +46,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-      </tr>
+
+      <?php
+        $expenses = Expense::getExpenses();
+        foreach ($expenses as $expense) {
+          
+          echo "<tr>";
+          echo "<td>" . $expense->getId() . "</td>";
+          echo "<td>" . $expense->getExpNarrate() . "</td>";
+          echo "<td>" . $expense->getExpCategory() . "</td>";
+          echo "<td>" . $expense->getExpAmount() . "</td>";
+          echo "<td>" . $expense->getExpDate() . "</td>";
+          echo "</tr>";
+        }
+        ?>
+        
     </tbody>
   </table>
 
