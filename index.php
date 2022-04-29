@@ -7,12 +7,9 @@
 
       $catName = $_POST['catName'];
 
-      //instantiates validateCategories method
-      $catValid = Category::validateCategoryName($catName);
-
-      //instantiates createCategory method
-      Category::createCategory($catName);
-
+      //instantiates getValidCatNameMessage method
+      $catValid = Category::getValidCatNameMessage($catName);
+              
     }
   
 
@@ -29,7 +26,6 @@
 
       <?php 
          echo $catValid;
-        // var_dump($result);
       ?>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
