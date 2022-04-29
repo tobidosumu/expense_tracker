@@ -31,7 +31,6 @@ class Category
     {
         $insertCategory = self::$dbConn->query("INSERT INTO categories (catName) VALUES ('$category')");
 
-        return $insertCategory;
     }
 
     //validates category name input with existing category names in db
@@ -46,7 +45,7 @@ class Category
         } else {
   
             return self::createCategory($catName) ."". "<h6 class='ml-3 text-success'>" ."Category name successfully inserted!". "</h6>";
-        
+              
         }
     }
 
