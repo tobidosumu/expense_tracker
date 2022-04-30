@@ -27,9 +27,37 @@ class Expense
     //saves expense to database
     public static function createExpense($narration, $category, $amount)
     {
-        $insertExpense = self::$dbConn->query("INSERT INTO expenses (expNarrate, expCategory, expAmount) VALUES ('$narration', '$category', '$amount')");
 
-        return $insertExpense;
+       self::$dbConn->query("INSERT INTO expenses (expNarrate, expCategory, expAmount) VALUES ('$narration', '$category', '$amount')");
+
+    }
+
+    //checks against empty fields
+    public static function checkEmptyNarrate($narration, $catName, $amount) 
+    {
+        $result = mysqli_num_rows(self::$dbConn->query("SELECT catName FROM categories WHERE catName = '$catName'"));
+        
+        if (empty($narration && $catName || $amount)) {
+
+            return "Please fill up the fields.";
+
+        } elseif (empty($narration)) {
+
+            return "Please enter an expense narration.";
+
+        } elseif ($result < 1) {
+    
+            return "Please select a category.";
+            
+        } elseif (empty($amount)) {
+
+            return "Please enter an expense amount.";
+
+        } else {
+             
+            return self::createExpense($narration, $catName, $amount)."<h6 class='text-success'>" ."Expense is successfully saved!". "</h6>";
+
+        }
     }
 
     //fetches expense from db
@@ -38,14 +66,17 @@ class Expense
         $result = self::$dbConn->query("SELECT * from expenses");
 
         if ($result->num_rows > 0) {
+
             foreach ($result as $expense) {
+                
                 new Expense($expense['expNarrate'], $expense['expCategory'], $expense['expAmount'], $expense['expDate']);
+           
             }
         }
         
     }
 
-    //gets enpenses
+    //gets expenses
     public static function getExpenses()
     {
         self::fetchExpenses();
@@ -82,28 +113,25 @@ class Expense
         return $this->expDate;
     }
 
-    // public function setExpNarrate($expNarrate)
-    // {
-    //     $this->expNarrate = $expNarrate;
-    // }
+    public function setExpNarrate($expNarrate)
+    {
+        $this->expNarrate = $expNarrate;
+    }
 
-    // public function setExpCategory($expCategory) 
-    // {
-    //     $this->expCategory = $expCategory;
-    // }
+    public function setExpCategory($expCategory) 
+    {
+        $this->expCategory = $expCategory;
+    }
 
-    // public function setExpAmount($expAmount)
-    // {
-    //     $this->expAmount = $expAmount;
-    // }
+    public function setExpAmount($expAmount)
+    {
+        $this->expAmount = $expAmount;
+    }
 
-    // public function SetExpDate($expDate) 
-    // {
-    //     $this->expDate = $expDate;
-    // }
-
-
-
+    public function SetExpDate($expDate) 
+    {
+        $this->expDate = $expDate;
+    }
 
 
     //inserting data into db

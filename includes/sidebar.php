@@ -8,7 +8,6 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900">
   <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="../assets/css/bootstrap-5.1/bootstrap/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/myStyle.css">
 </head>
@@ -23,7 +22,7 @@
           <a href="index.php"><span class="fa fa-home pt-3 pb-3"></span> Home</a>
         </li>
         <li class="linkColor">
-          <a href="expenses.php"><span class="fa fa-calendar-plus-o pt-3 pb-3"></span> Expenses</a>
+          <a href="expense.php"><span class="fa fa-calendar-plus-o pt-3 pb-3"></span> Expenses</a>
         </li>
         <li class="linkColor">
           <a href="expenseReport.php"><span class="fa fa-line-chart pt-3 pb-3"></span> Report</a>

@@ -1,9 +1,9 @@
 <?php 
-  include "./classes/category.php";
+  include "./classes/categoryValidation.php";
    
     $catValid = false;
     
-    if (isset($_POST['submit']) && !empty($_POST['catName'])) {
+    if (isset($_POST['submit'])) {
 
       $catName = $_POST['catName'];
 

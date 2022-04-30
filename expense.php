@@ -1,18 +1,20 @@
 <?php 
-include_once "./classes/expense.php";
-include_once "./classes/category.php";
-//include "./includes/autoloader.php";
+include "./classes/expenseValidation.php";
+include "./classes/categoryValidation.php";
+
+  $expValid = $expNarrate = false;
 
   if (isset($_POST['submit']))
   {
-    require_once "./classes/expense.php";
 
     $narration = $_POST['expNarrate'];
     $category = $_POST['expCategory'];
     $amount = $_POST['expAmount'];
 
-    Expense::createExpense($narration, $category, $amount);
-}
+    // instantiates Expense class for checkEmptyNarrate()
+    $expValid = Expense::checkEmptyNarrate($narration, $category, $amount);
+
+  }
 
   // including HTML files
   include "./includes/addExp.php";
@@ -23,7 +25,16 @@ include_once "./classes/category.php";
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <h4 class="text-uppercase">Expenses</h4>
+      <h4 class="text-uppercase">Expenses 
+        <h6 class="text-danger ml-3"> 
+
+        <?php 
+
+          echo $expValid;
+          
+        ?>
+        
+        </h6>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav ml-auto">

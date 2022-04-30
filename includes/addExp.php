@@ -15,7 +15,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="expenses.php" method="POST">
+            <form action="expense.php" method="POST">
               <div class="mb-4">
                 <label for="recipient-name" class="col-form-label mt-2">Expense Narration:</label>
                 <textarea class="form-control" name="expNarrate" placeholder="Enter expense narration"></textarea>
