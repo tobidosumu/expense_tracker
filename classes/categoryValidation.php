@@ -32,21 +32,39 @@ class Category
     //validates category name before inserting it into the database
     private static function validateCategoryName($catName) 
     {
-        $result = self::$dbConn->query("SELECT catName FROM categories WHERE catName = '$catName'");
+        $query = self::$dbConn->query("SELECT catName FROM categories WHERE catName = '$catName'");
 
         if (empty($catName)) {
             
-            return "<h6 class='ml-3 text-danger'>" ."Please enter a category.". "</h6>";
+            return "<h6 class='ml-3 text-danger'>" ."Please enter a category name.". "</h6>";
 
-        } elseif (mysqli_num_rows($result) > 0) {
+        } elseif (mysqli_num_rows($query) > 0) {
 
-            return "<h6 class='ml-3 text-danger'>" ."This category name already exists.". "</h6>";
+            return "<h6 class='ml-3 text-danger'>This category name already exists.</h6>";
 
         } else {
   
-            return self::createCategory($catName) ."". "<h6 class='ml-3 text-success'>" ."Category name successfully saved!". "</h6>";
+            return self::createCategory($catName) ."". "<h6 class='ml-3 text-success'>Category name successfully added!</h6>";
               
         }
+    }
+
+    //update category name
+    public static function updateCategoryName($id, $newCatName)
+    {
+        $query = self::$dbConn->query("UPDATE categories SET catName='$newCatName' WHERE id='$id'");
+
+        $result = mysqli_num_rows($query);
+
+        if ($result === false) {
+
+            return "<h6 class='ml-3 text-danger'>Sorry, category name not updated.</h6>";
+
+        } else {
+            
+            return self::createCategory($newCatName) ."". "<h6 class='ml-3 text-info'>Category name successfully updated!</h6>";
+        }
+        
     }
 
     //returns catname validation message

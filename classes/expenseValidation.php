@@ -55,7 +55,7 @@ class Expense
 
         } else {
              
-            return self::createExpense($narration, $catName, $amount)."<h6 class='text-success'>" ."Expense is successfully saved!". "</h6>";
+            return self::createExpense($narration, $catName, $amount)."<h6 class='text-success'>" ."Expense is successfully added!". "</h6>";
 
         }
     }
